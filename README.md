@@ -183,7 +183,7 @@ Possible improvements for future versions:
 
 **Mahdi Hajizadh**
 
-GitHub: [@mahdi12hajizadh](https://github.com/mahdi12hajizadh)
+GitHub: [@mahdi12hajizadh](https://github.com/mahdi-hajizadh)
 
 ---
 
