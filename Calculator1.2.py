@@ -1,4 +1,6 @@
 import tkinter as tk
+
+from arithmetic import calculate_expression
 import math
 
 
@@ -38,36 +40,36 @@ class Calculator:
 
     def square(self):
         try:
-            value = eval(self.expression.get())
+            value = calculate_expression(self.expression.get())
             self.expression.set(str(value ** 2))
-        except:
+        except (ArithmeticError, ValueError, SyntaxError):
             self.expression.set("Error")
 
     def sqrt(self):
         try:
-            value = eval(self.expression.get())
+            value = calculate_expression(self.expression.get())
             if value < 0:
                 self.expression.set("Error")
             else:
                 self.expression.set(str(math.sqrt(value)))
-        except:
+        except (ArithmeticError, ValueError, SyntaxError):
             self.expression.set("Error")
 
     def percent(self):
         try:
-            value = eval(self.expression.get())
+            value = calculate_expression(self.expression.get())
             self.expression.set(str(value / 100))
-        except:
+        except (ArithmeticError, ValueError, SyntaxError):
             self.expression.set("Error")
 
     def calculate(self):
         try:
-            result = eval(self.expression.get())
+            result = calculate_expression(self.expression.get())
             # نمایش نتیجه به صورت عدد صحیح در صورت امکان
             if isinstance(result, float) and result.is_integer():
                 result = int(result)
             self.expression.set(str(result))
-        except:
+        except (ArithmeticError, ValueError, SyntaxError):
             self.expression.set("Error")
 
     def create_button(self, text, row, col, command=None, color=None, colspan=1):

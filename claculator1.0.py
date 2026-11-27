@@ -1,5 +1,7 @@
 import tkinter as tk
 
+from arithmetic import calculate_expression
+
 win = tk.Tk()
 win.title("Calculator")
 win.geometry("400x400")
@@ -16,9 +18,9 @@ def click(meghdar):
 
 def calculate():
     try:
-        result = eval(my_str.get())
+        result = calculate_expression(my_str.get())
         my_str.set(str(result))
-    except:
+    except (ArithmeticError, ValueError, SyntaxError):
         my_str.set("Warning!")
 
 # صفحه نمایش

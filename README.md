@@ -101,12 +101,12 @@ Calculator/
 
 ## 🚀 Run the Calculator
 
-Make sure Python 3 is installed.
+Install Python 3 with Tk support. Run `python -m tkinter` to check that Tk is available.
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/mahdi12hajizadh/Calculator.git
+git clone https://github.com/mahdi-hajizadh/Calculator.git
 cd Calculator
 ```
 
@@ -152,15 +152,9 @@ This reduces duplicated GUI code and makes the interface easier to maintain.
 
 ---
 
-## ⚠️ Note
+## Expression input
 
-The calculator currently evaluates expressions using Python's `eval()` function.
-
-This implementation is suitable as a learning project, but `eval()` should **not** be used with untrusted user input in production software because arbitrary Python expressions could potentially be executed.
-
-A future version could replace `eval()` with a dedicated expression parser for safer evaluation.
-
----
+The calculator accepts decimal arithmetic, parentheses, and unary plus and minus. The parser evaluates these operations directly and rejects Python names and calls. Version 1.2 also provides square root, square, and percentage buttons.
 
 ## 🔮 Future Improvements
 
@@ -171,7 +165,6 @@ Possible improvements for future versions:
 * [ ] Scientific calculator mode
 * [ ] Memory functions (`M+`, `M-`, `MR`, `MC`)
 * [ ] Better expression validation
-* [ ] Safe expression parser instead of `eval()`
 * [ ] Light/Dark theme switching
 * [ ] Windows `.exe` release
 * [ ] Application icon

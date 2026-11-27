@@ -1,5 +1,7 @@
 import tkinter as tk
 
+from arithmetic import calculate_expression
+
 
 class Calculator:
     def __init__(self, root):
@@ -32,9 +34,9 @@ class Calculator:
 
     def calculate(self):
         try:
-            result = eval(self.my_str.get())
+            result = calculate_expression(self.my_str.get())
             self.my_str.set(str(result))
-        except:
+        except (ArithmeticError, ValueError, SyntaxError):
             self.my_str.set("Warning!")
 
     def create_widgets(self):
