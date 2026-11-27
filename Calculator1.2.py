@@ -65,7 +65,7 @@ class Calculator:
     def calculate(self):
         try:
             result = calculate_expression(self.expression.get())
-            # نمایش نتیجه به صورت عدد صحیح در صورت امکان
+            # Show the result as an integer when possible.
             if isinstance(result, float) and result.is_integer():
                 result = int(result)
             self.expression.set(str(result))
@@ -94,15 +94,15 @@ class Calculator:
         btn.grid(row=row, column=col, columnspan=colspan, padx=3, pady=3, sticky="nsew")
 
     def create_widgets(self):
-        # تنظیم وزن ستون‌ها برای انعطاف‌پذیری
+        # Give columns room to expand.
         for i in range(4):
             self.root.grid_columnconfigure(i, weight=1)
         
-        # تنظیم وزن ردیف‌ها
+        # Give rows room to expand.
         for i in range(7):
             self.root.grid_rowconfigure(i, weight=1)
 
-        # صفحه نمایش بزرگتر با پس‌زمینه تیره
+        # Larger display with a dark background
         entry = tk.Entry(
             self.root,
             textvariable=self.expression,
@@ -116,41 +116,41 @@ class Calculator:
 
         entry.grid(row=0, column=0, columnspan=4, padx=10, pady=(20, 10), sticky="nsew")
         
-        # خط جداکننده
+        # Divider
         separator = tk.Frame(self.root, height=2, bg="#3d3f43")
         separator.grid(row=1, column=0, columnspan=4, sticky="ew", padx=10, pady=5)
 
-        # ردیف اول - دکمه‌های عملیاتی
+        # First row: operation buttons
         self.create_button("C", 2, 0, self.clear, "#c0392b")
         self.create_button("⌫", 2, 1, self.backspace, "#d35400")
         self.create_button("(", 2, 2, lambda: self.click("("), "#3d3f43")
         self.create_button(")", 2, 3, lambda: self.click(")"), "#3d3f43")
 
-        # ردیف دوم - اعداد و تقسیم
+        # Second row: digits and division
         self.create_button("7", 3, 0, lambda: self.click("7"))
         self.create_button("8", 3, 1, lambda: self.click("8"))
         self.create_button("9", 3, 2, lambda: self.click("9"))
         self.create_button("÷", 3, 3, lambda: self.click("/"), "#e67e22")
 
-        # ردیف سوم
+        # Third row
         self.create_button("4", 4, 0, lambda: self.click("4"))
         self.create_button("5", 4, 1, lambda: self.click("5"))
         self.create_button("6", 4, 2, lambda: self.click("6"))
         self.create_button("×", 4, 3, lambda: self.click("*"), "#e67e22")
 
-        # ردیف چهارم
+        # Fourth row
         self.create_button("1", 5, 0, lambda: self.click("1"))
         self.create_button("2", 5, 1, lambda: self.click("2"))
         self.create_button("3", 5, 2, lambda: self.click("3"))
         self.create_button("-", 5, 3, lambda: self.click("-"), "#e67e22")
 
-        # ردیف پنجم
+        # Fifth row
         self.create_button("0", 6, 0, lambda: self.click("0"))
         self.create_button(".", 6, 1, lambda: self.click("."), "#3d3f43")
         self.create_button("%", 6, 2, self.percent, "#3d3f43")
         self.create_button("+", 6, 3, lambda: self.click("+"), "#e67e22")
 
-        # ردیف ششم - دکمه‌های ریاضی و مساوی
+        # Sixth row: math operations and equals
         self.create_button("√", 7, 0, self.sqrt, "#2980b9")
         self.create_button("x²", 7, 1, self.square, "#2980b9")
         self.create_button("=", 7, 2, self.calculate, "#27ae60", 2)

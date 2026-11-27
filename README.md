@@ -152,6 +152,10 @@ This reduces duplicated GUI code and makes the interface easier to maintain.
 
 ---
 
+## Tests
+
+Run `python -m unittest discover -s tests -v` from the repository root to test arithmetic evaluation without opening the GUI.
+
 ## Expression input
 
 The calculator accepts decimal arithmetic, parentheses, and unary plus and minus. The parser evaluates these operations directly and rejects Python names and calls. Version 1.2 also provides square root, square, and percentage buttons.
