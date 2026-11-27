@@ -41,7 +41,7 @@ class Calculator:
 
     def create_widgets(self):
 
-        # صفحه نمایش
+        # Display
         entry = tk.Entry(
             self.root,
             width=20,
@@ -51,7 +51,7 @@ class Calculator:
         )
         entry.grid(row=0, column=0, columnspan=4, padx=10, pady=15)
 
-        # اعداد
+        # Number buttons
         numbers = [
             ("1", 1, 0), ("2", 1, 1), ("3", 1, 2),
             ("4", 2, 0), ("5", 2, 1), ("6", 2, 2),
@@ -67,7 +67,7 @@ class Calculator:
                 **self.btn_style
             ).grid(row=row, column=col)
 
-        # عملگرها
+        # Operator buttons
         operators = [
             ("+", "+", 1, 3),
             ("-", "-", 2, 3),
@@ -83,7 +83,7 @@ class Calculator:
                 **self.btn_style
             ).grid(row=row, column=col)
 
-        # دکمه پاک کردن
+        # Clear button
         tk.Button(
             self.root,
             text="C",
@@ -97,7 +97,7 @@ class Calculator:
             activeforeground="black"
         ).grid(row=4, column=0)
 
-        # دکمه مساوی
+        # Equals button
         tk.Button(
             self.root,
             text="=",
